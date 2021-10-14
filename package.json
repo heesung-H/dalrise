@@ -9,12 +9,22 @@
     "build": "tsc -p .",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint --fix src/**/*.ts",
-    "commitlint": "commitlint -e"
+    "commitlint": "commitlint -e",
+    "simple-git-hooks": "simple-git-hooks",
+    "postinstall": "npm run simple-git-hooks",
+    "lint-staged": "lint-staged"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npm run lint-staged",
+    "commit-msg": "npm run commitlint"
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "lint-staged": {
+    "{src,test}/**/*.ts": "eslint --fix"
   },
   "dependencies": {
     "@types/cors": "^2.8.12",
@@ -37,6 +47,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "lint-staged": "^11.2.3",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "simple-git-hooks": "^2.6.1"
   }
 }
