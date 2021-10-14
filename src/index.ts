@@ -1,23 +1,13 @@
 import express from 'express';
-import cors from 'cors';
-//import { createConnection } from 'typeorm';
-
-function test(a: string) {
-  console.log(a + 'test');
-}
+import server from './app';
 
 const main = async () => {
-  const app = express();
-  app.use(cors());
-  app.use(express.json());
-
-  app.listen(3001, () => {
-    console.log('SERVER RUNNING ON PORT 3001');
-
-    test('aaaa');
-  });
+  server(express());
 };
 
 main().catch(err => {
   console.log(err);
 });
+
+//import Server from './server';
+//new Server().start();

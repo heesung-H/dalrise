@@ -10,3 +10,7 @@ https://github.com/tonsky/FiraCode 설치
 yarn
 관리자 권한 power shell
 Set-ExecutionPolicy RemoteSigned 실행
+
+==========================
+typeorm
+https://typeorm.delightful.studio/index.html
