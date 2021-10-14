@@ -1,12 +1,16 @@
 type ConfigType = {
   env: string | undefined;
-  port: number | string;
+  ip: string;
+  port: number;
+  seedDB: boolean;
   mysql: any;
 };
 
 const all: ConfigType = {
   env: process.env.NODE_ENV,
-  port: process.env.PORT || 3001,
+  ip: process.env.IP || '0.0.0.0',
+  port: 3001,
+  seedDB: true,
   mysql: {
     type: 'mysql',
     host: 'localhost',
@@ -15,6 +19,8 @@ const all: ConfigType = {
     password: 'dalrise',
     database: 'dalrise',
     entities: ['src/database/entities/**/*.entity.ts'],
+    factories: ['src/database/factories/*.factory{.ts,.js}'],
+    seeds: ['src/database/seeds/*.seed{.ts,.js}'],
     logging: true,
     synchronize: true, // 개발용
     name: 'dalrise',

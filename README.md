@@ -16,6 +16,9 @@
     * 윈도우에서 권한 문제가 있어
     * 관리자 권한 power shell -> Set-ExecutionPolicy RemoteSigned 실행
 
+# package.json script 가이드
+    * npm run seeder:config -> seed 데이타 생성
+    * npm run release       -> CHANGELOG.md git history 생성
 
 
 ## 개발 가이드
