@@ -1,6 +1,6 @@
 {
   "name": "server",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -12,7 +12,8 @@
     "commitlint": "commitlint -e",
     "simple-git-hooks": "simple-git-hooks",
     "postinstall": "npm run simple-git-hooks",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "release": "standard-version"
   },
   "simple-git-hooks": {
     "pre-commit": "npm run lint-staged",
@@ -48,6 +49,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "lint-staged": "^11.2.3",
     "prettier": "^2.4.1",
-    "simple-git-hooks": "^2.6.1"
+    "simple-git-hooks": "^2.6.1",
+    "standard-version": "^9.3.1"
   }
 }
