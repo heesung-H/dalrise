@@ -1,0 +1,25 @@
+version: '3'
+services:
+  node-app:
+    build:
+      # 빌드 명령을 실행할 디렉터리 경로
+      context: .
+      # 도커 이미지를 빌드하는데 사용할 도커 파일
+      dockerfile: ./Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      # 의존 관계 설정
+      - db
+  db:
+    image: mariadb:10
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db/conf.d:/etc/mysql/conf.d
+      - ./db/data:/var/lib/mysql
+      - ./db/initdb.d:/docker-entrypoint-initdb.d
+    env_file: .env
+    environment:
+      TZ: Asia/Seoul
+    restart: always
