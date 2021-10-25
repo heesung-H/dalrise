@@ -1,0 +1,33 @@
+{
+  "name": "dalrise",
+  "version": "1.1.0",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint ./**/src/**/*.ts",
+    "lint:fix": "eslint --fix ./**/src/**/*.ts",
+    "commitlint": "commitlint -e",
+    "simple-git-hooks": "simple-git-hooks",
+    "lint-staged": "lint-staged",
+    "release": "standard-version"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npm run lint-staged",
+    "commit-msg": "npm run commitlint"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "./**/{src,test}/**/*.ts": "eslint --fix"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.2.1",
+    "@commitlint/config-conventional": "^13.2.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.3",
+    "simple-git-hooks": "^2.6.1",
+    "standard-version": "^9.3.1"
+  }
+}
