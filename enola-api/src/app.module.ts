@@ -4,6 +4,7 @@ import { MysqlDatabaseProviderModule } from './database/providers/database.modul
 import { AccountModule } from './services/account/account.module';
 import { MainModule } from './services/main/main.module';
 import { ChatModule } from './services/chat/chat.module';
+import { PokemonModule } from './services/pokemon/pokemon.module';
 // import { AppController } from './domain/main/main.controller';
 // import { AppService } from './domain/main/main.service';
 
@@ -16,6 +17,7 @@ import { ChatModule } from './services/chat/chat.module';
     AccountModule,
     MainModule,
     ChatModule,
+    PokemonModule,
   ],
 })
 export class AppModule {}

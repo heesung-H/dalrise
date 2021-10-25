@@ -48,6 +48,9 @@
     * [한글사용가이드](https://typeorm.delightful.studio/index.html)
 
 # Commits lint
+    * 초기 설치
+      yarn standard-version --first-releas
+
     * commit 메세지 강제
     -> feat(MINOR): 이용자단에 새로운 기능 추가, API 변경(하위 호환)
     -> fix(PATCH): Bug Fix, API 변경 사항 없이 내부 수정
@@ -60,7 +63,6 @@
       - chore: run tests on travis ci
       - fix(server): send cors headers
       - feat(blog): add comment section
-
 
 
 
