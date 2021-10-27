@@ -1,0 +1,28 @@
+services:
+  mariadb:
+      image: mariadb:latest
+      container_name: mariadb_docker
+      restart: always
+      command: ['mysqld','--character-set-server=utf8mb4','--collation-server=utf8mb4_unicode_ci','--skip-character-set-client-handshake']
+      environment: 
+        - MYSQL_ROOT_PASSWORD=${ROOT_PWD}
+        - TZ=Asia/Seoul
+        - MYSQL_DATABASE=${N_DATABASE}
+        - MYSQL_USER=${N_USER}
+        - MYSQL_PASSWORD=${N_PWD}
+      volumes:
+        - ./docker/db_volumes:/var/lib/mysql
+      ports:
+        - '3306:3306'
+  redis:
+      image: redis:6.0.5
+      command: redis-server --requirepass changeme --port 6379
+      container_name: redis6379
+      hostname: redis6379
+      labels:
+        - "name=redis"
+        - "mode=standalone"
+      ports:
+        - 6379:6379
+      volumes: 
+        - ./docker/redis_volumes:/data

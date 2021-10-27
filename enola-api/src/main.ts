@@ -10,7 +10,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     cors: true,
   });
-  app.useWebSocketAdapter(new RedisIoAdapter(app));
+  //app.useWebSocketAdapter(new RedisIoAdapter(app));
   app.useStaticAssets(join(__dirname, '..', 'public'));
   app.useGlobalPipes(
     new ValidationPipe({

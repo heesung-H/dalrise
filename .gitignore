@@ -4,3 +4,7 @@
 
 /enola-api/dist
 /enola-web1/dist
+
+.env
+.idea
+/docker
