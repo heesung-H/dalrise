@@ -2,54 +2,81 @@
 
 # Enola
 
-This project was generated using [Nx](https://nx.dev).
+## 추천 vscode extensions 
+    * Material Theme
+    * Material Icon Theme
+    * Prettier - Code formatter
+    * ESLint
+        - [가이드](https://github.com/standard/standard/blob/master/docs/RULES-kokr.md)
+    * Markdown All in One
+    * Hide Node Modules (node_modules 숨김 처리)
+    
+## editor 
+    * [설치경로](https://github.com/tonsky/FiraCode)
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
-🔎 **Smart, Extensible Build Framework**
+## node 가이드
+# yarn 사용
+    * 윈도우에서 권한 문제가 있어
+    * 관리자 권한 power shell -> Set-ExecutionPolicy RemoteSigned 실행
 
-## Adding capabilities to your workspace
+# typeorm
+    * [한글사용가이드](https://typeorm.delightful.studio/index.html)
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+# Commits lint
+    * 초기 설치
+      yarn standard-version --first-releas
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+    * commit 메세지 강제
+    -> feat(MINOR): 이용자단에 새로운 기능 추가, API 변경(하위 호환)
+    -> fix(PATCH): Bug Fix, API 변경 사항 없이 내부 수정
+    -> docs: 문서 수정/추가
+    -> style: 포맷 수정 (e.g. 세미콜론 추가 등)
+    -> refactor: 리팩토링 코드, 변수 명등 변경
+    -> test: 테스트 코드 추가/수정
+    -> chore: 그외 자잘한 수정 사항들
 
-Below are our core plugins:
+      - chore: run tests on travis ci
+      - fix(server): send cors headers
+      - feat(blog): add comment section
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+## app 생성
 
-There are also many [community plugins](https://nx.dev/community) you could add.
+Run `nx g @nrwl/react:app my-app`
 
-## Generate an application
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+## library 생성
 
-> You can use any of the plugins above to generate applications as well.
+Run `nx g @nrwl/react:lib my-lib`
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
 
-## Generate a library
+app 에서 library 사용
+`@enola/mylib`.
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@enola/mylib`.
 
 ## Development server
 
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+Run `nx serve api`
+
+Run `nx serve question-app`
+
+
+## 초기 설치  
+    nx g @nrwl/nest:app api  
+    nx g @nrwl/nest:lib core  
+    nx g @nrwl/nest:lib auth  
+    nx g @nrwl/nest:lib api-service  
+    nx g @nrwl/nest:lib api-data
+
+    nx g @nrwl/react:lib enola-ui
+    nx g @nrwl/react:component board --project enola-ui
+
+
+  # workspace 삭제
+    nx g @nrwl/workspace:remove react-ui
+    nx g @nrwl/workspace:remove core
+    nx g @nrwl/workspace:remove question-app-e2e
+
 
 ## Code scaffolding
 
@@ -74,21 +101,3 @@ Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
 ## Understand your workspace
 
 Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.

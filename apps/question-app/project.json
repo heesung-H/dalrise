@@ -1,0 +1,72 @@
+{
+  "root": "apps/question-app",
+  "sourceRoot": "apps/question-app/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/question-app",
+        "index": "apps/question-app/src/index.html",
+        "baseHref": "/",
+        "main": "apps/question-app/src/main.tsx",
+        "polyfills": "apps/question-app/src/polyfills.ts",
+        "tsConfig": "apps/question-app/tsconfig.app.json",
+        "assets": [
+          "apps/question-app/src/favicon.ico",
+          "apps/question-app/src/assets"
+        ],
+        "styles": ["apps/question-app/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/question-app/src/environments/environment.ts",
+              "with": "apps/question-app/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "question-app:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "question-app:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/question-app/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/question-app"],
+      "options": {
+        "jestConfig": "apps/question-app/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
